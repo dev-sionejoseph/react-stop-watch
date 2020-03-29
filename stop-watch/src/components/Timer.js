@@ -50,7 +50,9 @@ export default class Timer extends Component {
                 {this.state.seconds}
             </div>
             <div>
-
+                <button onClick="handlePause">Pause</button>
+                <button onClick="handleStart">Start</button>
+                <button onClick="handleReset">Reset</button>
             </div>
         </div>
       );
