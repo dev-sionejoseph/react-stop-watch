@@ -20,12 +20,13 @@ export default class Timer extends Component {
       }
     
     // made different methods, one for each button, that manipulates states as needed
-    
+
     handleStart(event) {
       event.preventDefault();
       this.setState({
           counting: true
       })
+      this.countSeconds()
     }
   
     handlePause(event) {
@@ -48,6 +49,16 @@ export default class Timer extends Component {
             seconds: 0
       })
       }
+
+    // found a new method called setInterval. playing with it here to make it work.
+
+    countSeconds() {
+        if(this.state.counting == true){
+            setInterval(() => {
+                this.state.seconds+=1
+            }, 1000);
+        }
+    }
 
     render() {
       return (
