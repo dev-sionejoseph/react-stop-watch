@@ -21,12 +21,15 @@ export default class Timer extends Component {
     
     // made different methods, one for each button, that manipulates states as needed
     // for some reaseon, timer only starts when I press start, then pause, THEN start. yikes.
-    
+
     handleStart(event) {
       this.setState({
           counting: true
       })
-      this.countSeconds()
+
+      if((this.state.seconds === 0) & (this.state.counting === true)){
+           this.countSeconds()
+      }   
     }
   
     handlePause(event) {
@@ -52,15 +55,16 @@ export default class Timer extends Component {
 
     // found a new method called setInterval. playing with it here to make it work.
 
-    countSeconds() {
-        if(this.state.counting === true){
-            setInterval(() => {
+    countSeconds(){
+        // if(this.state.counting === true){
+           setInterval(() => {
                 this.setState({
                     seconds: this.state.seconds+=1
                 })
             }, 1000);
-        }
-    }
+        // }
+        // return () => clearInterval(start)
+    } 
 
     render() {
       return (
