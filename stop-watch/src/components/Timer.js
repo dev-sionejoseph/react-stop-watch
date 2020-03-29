@@ -27,7 +27,7 @@ export default class Timer extends Component {
           counting: true
       })
 
-      if((this.state.seconds === 0) & (this.state.counting === true)){
+      if(this.state.seconds === 0){
            this.countSeconds()
       }   
     }
@@ -36,13 +36,15 @@ export default class Timer extends Component {
       event.preventDefault();
       if ((this.state.seconds > 0) & 
       (this.state.counting === true)){
-          this.setState({
+            this.setState({
               counting: false
             })
+            clearInterval(this.counter)    
       } else if (this.state.seconds > 0){
           this.setState({
               counting: true
           })
+          this.countSeconds()
       }
     }
   
@@ -51,19 +53,17 @@ export default class Timer extends Component {
             counting: false,
             seconds: 0
       })
+      clearInterval(this.counter)  //using the clearInterval method to stop the timer!
       }
 
     // found a new method called setInterval. playing with it here to make it work.
 
     countSeconds(){
-        // if(this.state.counting === true){
-           setInterval(() => {
+           this.counter = setInterval(() => {
                 this.setState({
                     seconds: this.state.seconds+=1
                 })
-            }, 1000);
-        // }
-        // return () => clearInterval(start)
+            }, 1000); 
     } 
 
     render() {
