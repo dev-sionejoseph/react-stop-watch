@@ -19,7 +19,8 @@ export default class Timer extends Component {
       this.handleReset = this.handleReset.bind(this)
       }
     
-  
+    // made different methods, one for each button, that manipulates states as needed
+    
     handleStart(event) {
       event.preventDefault();
       this.setState({
