@@ -4,10 +4,13 @@ import React, {Component} from 'react';
 export default class Timer extends Component {
     constructor(props) {
       super(props)
+    // I gave two states, one to track seconds passed and one to track if the timer is on or off.
       this.state = {
           counting: false,
           seconds: 0, 
       }
+    // I thought it best to use the bindings like suggested for our forms.
+
       this.handleStart = this.handleStart.bind(this)
       this.handlePause = this.handlePause.bind(this)
       this.handleReset = this.handleReset.bind(this)
@@ -16,20 +19,19 @@ export default class Timer extends Component {
   
     handleStart(event) {
       event.preventDefault();
-      
-      
       this.setState({
+          counting: true
       })
     }
   
     handlePause(event) {
       event.preventDefault();
-      if (([this.state.seconds]>0) & 
-      ([this.state.counting]==true)){
+      if ((this.state.seconds > 0) & 
+      (this.state.counting == true)){
           this.setState({
               counting: false
             })
-      } else {
+      } else if (this.state.seconds > 0){
           this.setState({
               counting: true
           })
@@ -50,9 +52,9 @@ export default class Timer extends Component {
                 {this.state.seconds}
             </div>
             <div>
-                <button onClick="handlePause">Pause</button>
-                <button onClick="handleStart">Start</button>
-                <button onClick="handleReset">Reset</button>
+                <button onClick={this.handlePause}>Pause</button>
+                <button onClick={this.handleStart}>Start</button>
+                <button onClick={this.handleReset}>Reset</button>
             </div>
         </div>
       );
