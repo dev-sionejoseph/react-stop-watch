@@ -11,8 +11,8 @@
     height: 100px;
     width: 300px;
     /* outline: dotted; */
-    outline-color: mediumaquamarine;
-    font-size: 2em;
+    /* color: mediumaquamarine; */
+    font-size: 4em;
     text-align: center;
 }
 button {
