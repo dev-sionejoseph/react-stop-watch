@@ -8,10 +8,12 @@
 }
 
 #seconds {
-    height: 300px;
-    width: 900px;
-    outline: dotted;
+    height: 100px;
+    width: 300px;
+    /* outline: dotted; */
     outline-color: mediumaquamarine;
+    font-size: 2em;
+    text-align: center;
 }
 button {
     background-color: lightseagreen;
