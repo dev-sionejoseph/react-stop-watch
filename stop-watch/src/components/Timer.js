@@ -16,22 +16,30 @@ export default class Timer extends Component {
   
     handleStart(event) {
       event.preventDefault();
-  
+      
+      
       this.setState({
       })
     }
   
     handlePause(event) {
       event.preventDefault();
-
-      this.setState({
-    })
+      if (([this.state.seconds]>0) & 
+      ([this.state.counting]==true)){
+          this.setState({
+              counting: false
+            })
+      } else {
+          this.setState({
+              counting: true
+          })
+      }
     }
   
     handleReset(event) {
-        event.preventDefault();
-  
         this.setState({
+            counting: false,
+            seconds: 0
       })
       }
 
@@ -42,7 +50,7 @@ export default class Timer extends Component {
                 {this.state.seconds}
             </div>
             <div>
-                
+
             </div>
         </div>
       );
