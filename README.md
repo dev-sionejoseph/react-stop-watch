@@ -1,5 +1,4 @@
-# react-stop-watch
------
+# React Stopwatch
 a simple timer that ticks at 1-second intervals, written in React.
 
 
