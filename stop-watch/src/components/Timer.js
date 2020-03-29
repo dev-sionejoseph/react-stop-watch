@@ -20,9 +20,9 @@ export default class Timer extends Component {
       }
     
     // made different methods, one for each button, that manipulates states as needed
-
+    // for some reaseon, timer only starts when I press start, then pause, THEN start. yikes.
+    
     handleStart(event) {
-      event.preventDefault();
       this.setState({
           counting: true
       })
