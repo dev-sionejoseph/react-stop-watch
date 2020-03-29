@@ -32,7 +32,7 @@ export default class Timer extends Component {
     handlePause(event) {
       event.preventDefault();
       if ((this.state.seconds > 0) & 
-      (this.state.counting == true)){
+      (this.state.counting === true)){
           this.setState({
               counting: false
             })
@@ -53,9 +53,11 @@ export default class Timer extends Component {
     // found a new method called setInterval. playing with it here to make it work.
 
     countSeconds() {
-        if(this.state.counting == true){
+        if(this.state.counting === true){
             setInterval(() => {
-                this.state.seconds+=1
+                this.setState({
+                    seconds: this.state.seconds+=1
+                })
             }, 1000);
         }
     }
